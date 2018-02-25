@@ -7,14 +7,18 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <TextBox Name="origtext" HorizontalAlignment="Left" Height="100" Margin="54,50,0,0" TextWrapping="Wrap" Text="Ваш текст" VerticalAlignment="Top" Width="154"/>
-        <TextBox Name="kripttext" HorizontalAlignment="Left" Height="100" Margin="313,50,0,0" TextWrapping="Wrap" Text="Шифр" VerticalAlignment="Top" Width="154"/>
-        <RadioButton Name="skital" Content="Скитала" HorizontalAlignment="Left" Margin="54,186,0,0" VerticalAlignment="Top"/>
-        <RadioButton Name="tablekript" Content="Шифрующая таблица" HorizontalAlignment="Left" Margin="54,226,0,0" VerticalAlignment="Top"/>
-        <RadioButton Name="doubleswitch" Content="Двойная перестановка" HorizontalAlignment="Left" Margin="54,206,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="key1" HorizontalAlignment="Left" Height="23" Margin="326,173,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button Click="Encrypt_Click" Name="Fuck" Content="Зашифровать" HorizontalAlignment="Left" Margin="201,262,0,0" VerticalAlignment="Top" Width="120" Height="29"/>
-        <TextBox Name="key2" HorizontalAlignment="Left" Height="23" Margin="326,204,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button Content="Расшифровать" HorizontalAlignment="Left" Margin="347,262,0,0" VerticalAlignment="Top" Width="120" Height="29" Click="Decrypt_Click"/>
+        <TextBox Name="origtext" HorizontalAlignment="Left" Height="100" Margin="46,10,0,0" TextWrapping="Wrap" Text="Ваш текст" VerticalAlignment="Top" Width="154"/>
+        <TextBox Name="kripttext" HorizontalAlignment="Left" Height="100" Margin="313,10,0,0" TextWrapping="Wrap" Text="Шифр" VerticalAlignment="Top" Width="154"/>
+        <RadioButton Name="skital" Content="Скитала" HorizontalAlignment="Left" Margin="46,137,0,0" VerticalAlignment="Top"/>
+        <RadioButton Name="tablekript" Content="Шифрующая таблица" HorizontalAlignment="Left" Margin="46,184,0,0" VerticalAlignment="Top"/>
+        <RadioButton Name="doubleswitch" Content="Двойная перестановка" HorizontalAlignment="Left" Margin="46,161,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="key1" HorizontalAlignment="Left" Height="23" Margin="347,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button Click="Encrypt_Click" Name="Fuck" Content="Зашифровать" HorizontalAlignment="Left" Margin="262,262,0,0" VerticalAlignment="Top" Width="120" Height="29"/>
+        <TextBox Name="key2" HorizontalAlignment="Left" Height="23" Margin="347,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Расшифровать" HorizontalAlignment="Left" Margin="387,262,0,0" VerticalAlignment="Top" Width="120" Height="29" Click="Decrypt_Click"/>
+        <TextBox Name="diametr" HorizontalAlignment="Left" Height="23" Margin="347,193,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Первый ключ" HorizontalAlignment="Left" Margin="256,137,0,0" VerticalAlignment="Top"/>
+        <Label Content="Второй ключ" HorizontalAlignment="Left" Margin="260,165,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.737,-1.154"/>
+        <Label Content="Диаметр" HorizontalAlignment="Left" Margin="284,193,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

@@ -1,17 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace KriptoLaba1
 {
@@ -28,35 +18,41 @@ namespace KriptoLaba1
         private void Encrypt_Click(object sender, RoutedEventArgs e)
         {
             if (skital.IsChecked==true) {
-                string[] mass = origtext.Text.Split(" ".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
-                string result = "";
-                int stolbci = 0, count = 0;
-                foreach (string r in mass)
-                    result += r;
-                char[] rezArray = new char[result.Length];
-                for (int i = 1; i < result.Length; i++)
+                if (String.IsNullOrEmpty(diametr.Text))
                 {
-                    if (result.Length / i == 4)
+                    MessageBox.Show("Введите диаметр \"палочки\"", "Ошибка", MessageBoxButton.OK);
+                    return;
+                }
+                if (String.IsNullOrEmpty(origtext.Text))
+                {
+                    MessageBox.Show("Введите текст для шифровки/расшифровки", "Ошибка", MessageBoxButton.OK);
+                    return;
+                }
+                int diameter_word_length = 0, lines = 0;
+                string original_text = origtext.Text;
+                diameter_word_length = Convert.ToInt32(diametr.Text);
+                lines = (original_text.Length - 1) / diameter_word_length + 1;
+                int spaces = lines * diameter_word_length - original_text.Length;
+                for (int l = 0; l < spaces; l++)
+                    original_text += " ";
+                string[,] buffer_array = new string[diameter_word_length, lines];
+                string result_text = "";
+                int k = 0;
+                for (int i = 0; i < diameter_word_length; i++)
+                {
+                    for (int j = 0; j < lines; j++)
                     {
-                        stolbci = i;
-                        break;
+                        buffer_array[i, j] = original_text.Substring(k, 1);
+                        k += 1;
                     }
                 }
-                for (int i = 0; i < stolbci; i++)
+                for (int j1 = 0; j1 < lines; j1++)
                 {
-                    int plus = i;
-
-                    {
-                        for (int j = 0; j < 4; j++)
-                        {
-                            rezArray[count] += result[plus];
-                            plus += stolbci;
-                            count++;
-                        }
-                    }
+                    for (int i1 = 0; i1 < diameter_word_length; i1++)
+                        result_text += buffer_array[i1, j1];
                 }
+                kripttext.Text = result_text;
 
-                kripttext.Text = new string(rezArray);
             }
 
             if (tablekript.IsChecked==true & key1.Text!="") {
@@ -266,7 +262,44 @@ namespace KriptoLaba1
 
         private void Decrypt_Click(object sender, RoutedEventArgs e)
         {
-
+            if (skital.IsChecked == true)
+            {
+                if (String.IsNullOrEmpty(diametr.Text))
+                {
+                    MessageBox.Show("Введите диаметр \"палочки\"", "Ошибка", MessageBoxButton.OK);
+                    return;
+                }
+                if (String.IsNullOrEmpty(origtext.Text))
+                {
+                    MessageBox.Show("Введите текст для шифровки/расшифровки", "Ошибка", MessageBoxButton.OK);
+                    return;
+                }
+                int diameter_word_length = 0, lines = 0;
+                string original_text = origtext.Text;
+                diameter_word_length = Convert.ToInt32(diametr.Text);
+                lines = (original_text.Length - 1) / diameter_word_length + 1;
+                int spaces = lines * diameter_word_length - original_text.Length;
+                for (int l = 0; l < spaces; l++)
+                    original_text += " ";
+                string[,] buffer_array = new string[diameter_word_length, lines];
+                string result_text = "";
+                int k = 0;
+                for (int i = 0; i < lines; i++)
+                {
+                    for (int j = 0; j < diameter_word_length; j++)
+                    {
+                        buffer_array[j, i] = original_text.Substring(k, 1);
+                        k += 1;
+                    }
+                }
+                for (int j1 = 0; j1 < diameter_word_length; j1++)
+                {
+                    for (int i1 = 0; i1 < lines; i1++)
+                        result_text += buffer_array[j1, i1];
+                }
+                kripttext.Text = result_text;
+            }
+            
         }
     }
 }
