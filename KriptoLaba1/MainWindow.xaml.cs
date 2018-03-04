@@ -57,102 +57,23 @@ namespace KriptoLaba1
 
             if (tablekript.IsChecked==true & key1.Text!="") {
 
-                Dictionary<char, short> alfavit = new Dictionary<char, short>();
-                alfavit.Add('А', 1);
-                alfavit.Add('Б', 2);
-                alfavit.Add('В', 3);
-                alfavit.Add('Г', 4);
-                alfavit.Add('Д', 5);
-                alfavit.Add('Е', 6);
-                alfavit.Add('Ё', 7);
-                alfavit.Add('Ж', 8);
-                alfavit.Add('З', 9);
-                alfavit.Add('И', 10);
-                alfavit.Add('Й', 11);
-                alfavit.Add('К', 12);
-                alfavit.Add('Л', 13);
-                alfavit.Add('М', 14);
-                alfavit.Add('Н', 15);
-                alfavit.Add('О', 16);
-                alfavit.Add('П', 17);
-                alfavit.Add('Р', 18);
-                alfavit.Add('С', 19);
-                alfavit.Add('Т', 20);
-                alfavit.Add('У', 21);
-                alfavit.Add('Ф', 22);
-                alfavit.Add('Х', 23);
-                alfavit.Add('Ц', 24);
-                alfavit.Add('Ч', 25);
-                alfavit.Add('Ш', 26);
-                alfavit.Add('Щ', 27);
-                alfavit.Add('Ъ', 28);
-                alfavit.Add('Ы', 29);
-                alfavit.Add('Ь', 30);
-                alfavit.Add('Э', 31);
-                alfavit.Add('Ю', 32);
-                alfavit.Add('Я', 33);
-
-
-                string original = key1.Text;
-                string orginaltext = origtext.Text;
-                char[] chekleter = original.ToCharArray();
-
-                int count = 0;
-                foreach (char later in chekleter)
+                if (String.IsNullOrEmpty(key1.Text))
                 {
-                    count = original.Where(x => x == later).Count();
-                    if (count > 1) { kripttext.Text = "Ты що ебанутый???"; return; }
+                    MessageBox.Show("Введите ключ", "Ошибка", MessageBoxButton.OK);
+                    return;
+                }
+                if (String.IsNullOrEmpty(origtext.Text))
+                {
+                    MessageBox.Show("Введите текст для шифровки/расшифровки", "Ошибка", MessageBoxButton.OK);
+                    return;
                 }
 
-                int[] array1 = new int[original.Length];
-                int[] array2 = new int[original.Length];
+                TableTrans tableTrans = new TableTrans();
+                tableTrans.SetKey(key1.Text);
+                string original_text = origtext.Text;
+                string result_text = tableTrans.Encrypt(original_text);
+                kripttext.Text = result_text;
 
-                count = 0;
-                foreach(char later in original.ToUpper())
-                {
-                    array1[count++] = alfavit[later];
-                }
-
-                array2 = array1.OrderBy(x=>x).ToArray();
-               
-
-                
-
-                char[,] array3 = new char[(int)Math.Ceiling((double)orginaltext.Length/array2.Length), array2.Length];
-                count = 0;
-                for (int i=0; i< (int)Math.Ceiling((double)orginaltext.Length / array2.Length); i++)
-                    for(int j=0; j< array2.Length; j++)
-                    {
-                        array3[i, j] = orginaltext.Length<=count ? ' ' : orginaltext[count];
-                        count++;
-                    }
-
-                char[,] array4 = new char[(int)Math.Ceiling((double)orginaltext.Length / array2.Length), array2.Length];
-
-                for(int i=0; i< array2.Length; i++)
-                {
-                    if (array1[i] == array2[i])
-                    {
-                        for(int j=0; j< ((int)Math.Ceiling((double)orginaltext.Length / array2.Length)); j++)
-                        {
-                            array4[j, i] = array3[j, i];
-                        }
-                    }else{
-
-                        for (int j = 0; j < (int)Math.Ceiling((double)orginaltext.Length / array2.Length); j++)
-                        {
-                            array4[j, i] = array3[j, Array.IndexOf(array1, array2[i])];
-                        }
-
-                    }
-
-                }
-                string rez="";
-                foreach(char lit in array4)
-                {
-                    rez += lit;
-                }
-                kripttext.Text = rez;
             }
 
             if (doubleswitch.IsChecked==true && key1.Text!="" && key2.Text!="") {
@@ -299,7 +220,29 @@ namespace KriptoLaba1
                 }
                 kripttext.Text = result_text;
             }
-            
+
+            if (tablekript.IsChecked == true & key1.Text != "")
+            {
+
+                if (String.IsNullOrEmpty(key1.Text))
+                {
+                    MessageBox.Show("Введите ключ", "Ошибка", MessageBoxButton.OK);
+                    return;
+                }
+                if (String.IsNullOrEmpty(origtext.Text))
+                {
+                    MessageBox.Show("Введите текст для шифровки/расшифровки", "Ошибка", MessageBoxButton.OK);
+                    return;
+                }
+
+                TableTrans tableTrans = new TableTrans();
+                tableTrans.SetKey(key1.Text);
+                string original_text = origtext.Text;
+                string result_text = tableTrans.Decrypt(original_text);
+                kripttext.Text = result_text;
+
+            }
+
         }
     }
 }
