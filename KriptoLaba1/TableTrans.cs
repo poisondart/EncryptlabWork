@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace KriptoLaba1
 {
-    class TableTrans
+    class TableTrans: BaseTrans
     {
         private int[] key = null;
-
 
         public void SetKey(string _key)
         {
