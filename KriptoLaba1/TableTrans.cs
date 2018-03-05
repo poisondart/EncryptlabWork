@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace KriptoLaba1
 {
-    class TableTrans : BasicDictionaryClass
+    class TableTrans: BaseTrans
     {
         // ключ в виде массива номеров символов
         private int[] key = null;
