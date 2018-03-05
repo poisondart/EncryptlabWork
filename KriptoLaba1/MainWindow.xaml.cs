@@ -8,6 +8,11 @@ namespace KriptoLaba1
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
+    /// 
+
+    /*Нужно сделать скитала, табличная, двойная перестановка, магический квадрат,
+     * полибианский квадрат, шифр цезаря, гронсфельда, виженера, уитстона*/
+
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -29,29 +34,10 @@ namespace KriptoLaba1
                     MessageBox.Show("Введите текст для шифровки/расшифровки", "Ошибка", MessageBoxButton.OK);
                     return;
                 }
-                int diameter_word_length = 0, lines = 0;
+                Skital skital = new Skital();
+                skital.SetLength(diametr.Text);
                 string original_text = origtext.Text;
-                diameter_word_length = Convert.ToInt32(diametr.Text);
-                lines = (original_text.Length - 1) / diameter_word_length + 1;
-                int spaces = lines * diameter_word_length - original_text.Length;
-                for (int l = 0; l < spaces; l++)
-                    original_text += " ";
-                string[,] buffer_array = new string[diameter_word_length, lines];
-                string result_text = "";
-                int k = 0;
-                for (int i = 0; i < diameter_word_length; i++)
-                {
-                    for (int j = 0; j < lines; j++)
-                    {
-                        buffer_array[i, j] = original_text.Substring(k, 1);
-                        k += 1;
-                    }
-                }
-                for (int j1 = 0; j1 < lines; j1++)
-                {
-                    for (int i1 = 0; i1 < diameter_word_length; i1++)
-                        result_text += buffer_array[i1, j1];
-                }
+                string result_text = skital.EncryptText(original_text);
                 kripttext.Text = result_text;
 
             }
@@ -107,7 +93,6 @@ namespace KriptoLaba1
                 {
                     MessageBox.Show(ex.ToString());
                 }
-
             }
         }
 
@@ -125,29 +110,10 @@ namespace KriptoLaba1
                     MessageBox.Show("Введите текст для шифровки/расшифровки", "Ошибка", MessageBoxButton.OK);
                     return;
                 }
-                int diameter_word_length = 0, lines = 0;
+                Skital skital = new Skital();
+                skital.SetLength(diametr.Text);
                 string original_text = origtext.Text;
-                diameter_word_length = Convert.ToInt32(diametr.Text);
-                lines = (original_text.Length - 1) / diameter_word_length + 1;
-                int spaces = lines * diameter_word_length - original_text.Length;
-                for (int l = 0; l < spaces; l++)
-                    original_text += " ";
-                string[,] buffer_array = new string[diameter_word_length, lines];
-                string result_text = "";
-                int k = 0;
-                for (int i = 0; i < lines; i++)
-                {
-                    for (int j = 0; j < diameter_word_length; j++)
-                    {
-                        buffer_array[j, i] = original_text.Substring(k, 1);
-                        k += 1;
-                    }
-                }
-                for (int j1 = 0; j1 < diameter_word_length; j1++)
-                {
-                    for (int i1 = 0; i1 < lines; i1++)
-                        result_text += buffer_array[j1, i1];
-                }
+                string result_text = skital.DecryptText(original_text);
                 kripttext.Text = result_text;
             }
 
@@ -192,8 +158,7 @@ namespace KriptoLaba1
                 string cryptKeyOne = key1.Text;
                 string cryptKeyTwo = key2.Text;
 
-                try
-                {
+                try{
 
                     DoubleTrans doubleTrans = new DoubleTrans(originaText, cryptKeyOne, cryptKeyTwo);
 
@@ -201,8 +166,7 @@ namespace KriptoLaba1
 
                     kripttext.Text = decryptString;
                 }
-                catch (Exception ex)
-                {
+                catch (Exception ex){
 
                     MessageBox.Show(ex.ToString());
                 }
