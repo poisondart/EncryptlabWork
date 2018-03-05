@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KriptoLaba1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Лабораторная работа №1" Height="350" Width="525">
     <Grid>
         <TextBox Name="origtext" HorizontalAlignment="Left" Height="100" Margin="46,10,0,0" TextWrapping="Wrap" Text="Ваш текст" VerticalAlignment="Top" Width="154"/>
         <TextBox Name="kripttext" HorizontalAlignment="Left" Height="100" Margin="313,10,0,0" TextWrapping="Wrap" Text="Шифр" VerticalAlignment="Top" Width="154"/>
