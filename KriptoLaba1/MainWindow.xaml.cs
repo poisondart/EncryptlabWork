@@ -41,7 +41,7 @@ namespace KriptoLaba1
 
             }
 
-            if (tablekript.IsChecked==true & key1.Text!="") {
+            if (tablekript.IsChecked==true) {
 
                 if (String.IsNullOrEmpty(key1.Text))
                 {
@@ -62,24 +62,7 @@ namespace KriptoLaba1
 
             }
 
-            if (doubleswitch.IsChecked == true && key1.Text != "" && key2.Text != "")
-            {
-                if (String.IsNullOrEmpty(key1.Text))
-                {
-                    MessageBox.Show("Введите первый ключ", "Ошибка", MessageBoxButton.OK);
-                    return;
-                }
-                if (String.IsNullOrEmpty(key2.Text))
-                {
-                    MessageBox.Show("Введите второй ключ", "Ошибка", MessageBoxButton.OK);
-                    return;
-                }
-                if (String.IsNullOrEmpty(origtext.Text))
-                {
-                    MessageBox.Show("Введите текст для шифровки/расшифровки", "Ошибка", MessageBoxButton.OK);
-                    return;
-                }
-            }
+            
         }
 
         private void Decrypt_Click(object sender, RoutedEventArgs e)
@@ -103,7 +86,7 @@ namespace KriptoLaba1
                 kripttext.Text = result_text;
             }
 
-            if (tablekript.IsChecked == true & key1.Text != "")
+            if (tablekript.IsChecked == true)
             {
 
                 if (String.IsNullOrEmpty(key1.Text))
@@ -122,26 +105,8 @@ namespace KriptoLaba1
                 string original_text = origtext.Text;
                 string result_text = tableTrans.Decrypt(original_text);
                 kripttext.Text = result_text;
-
             }
-            if (doubleswitch.IsChecked == true && key1.Text != "" && key2.Text != "")
-            {
-                if (String.IsNullOrEmpty(key1.Text))
-                {
-                    MessageBox.Show("Введите первый ключ", "Ошибка", MessageBoxButton.OK);
-                    return;
-                }
-                if (String.IsNullOrEmpty(key2.Text))
-                {
-                    MessageBox.Show("Введите второй ключ", "Ошибка", MessageBoxButton.OK);
-                    return;
-                }
-                if (String.IsNullOrEmpty(origtext.Text))
-                {
-                    MessageBox.Show("Введите текст для шифровки/расшифровки", "Ошибка", MessageBoxButton.OK);
-                    return;
-                }
-            }
+           
         }
     }
 }
