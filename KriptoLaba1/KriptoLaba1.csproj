@@ -57,6 +57,7 @@
     </ApplicationDefinition>
     <Compile Include="BaseTrans.cs" />
     <Compile Include="DoubleTrans.cs" />
+    <Compile Include="PolibSquare.cs" />
     <Compile Include="Skital.cs" />
     <Compile Include="TableTrans.cs" />
     <Page Include="MainWindow.xaml">
