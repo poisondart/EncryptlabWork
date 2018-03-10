@@ -83,14 +83,24 @@
 
             foreach (var letter in str.ToLower())
             {
+                if (letter == ' ')
+                {
+                    result += letter;
+                    continue;
+                }
+
                 for (int i = 0; i < arrLenght; i++)
                 {
                     for (int j = 0; j < arrLenght; j++)
                     {
                         if (letter == arr[i, j])
                         {
-                            if (i == arrLenght - 1 || arr[i + 1, j] == '\0')
-                                result += arr[0, j];
+                            if (i == 0)
+                            {
+                                if (arr[arrLenght - 1, j] == '\0')
+                                    result += arr[arrLenght - 2, j];
+                                else result += arr[arrLenght - 1, j];
+                            }
                             else
                                 result += arr[i - 1, j];
                         }
