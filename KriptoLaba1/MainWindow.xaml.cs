@@ -102,6 +102,20 @@ namespace KriptoLaba1
                     MessageBox.Show(ex.ToString());
                 }
             }
+
+            if (polib.IsChecked == true)
+            {
+                if (String.IsNullOrEmpty(origtext.Text))
+                {
+                    MessageBox.Show("Введите текст для шифровки/расшифровки", "Ошибка", MessageBoxButton.OK);
+                    return;
+                }
+
+                string orig_text = origtext.Text;
+                PolibSquare polib = new PolibSquare();
+                string result_text = polib.Encrypt(orig_text);
+                kripttext.Text = result_text;
+            }
         }
 
         private void Decrypt_Click(object sender, RoutedEventArgs e)
@@ -186,7 +200,21 @@ namespace KriptoLaba1
                     MessageBox.Show(ex.ToString());
                 }
             }
-           
+
+            if (polib.IsChecked == true)
+            {
+                if (String.IsNullOrEmpty(origtext.Text))
+                {
+                    MessageBox.Show("Введите текст для шифровки/расшифровки", "Ошибка", MessageBoxButton.OK);
+                    return;
+                }
+
+                string orig_text = origtext.Text;
+                PolibSquare polib = new PolibSquare();
+                string result_text = polib.Decrypt(orig_text);
+                kripttext.Text = result_text;
+            }
+
         }
     }
 }
