@@ -14,3 +14,6 @@
 ## Авторы:
 * [poisondart](https://github.com/poisondart)
 * [MetalKefir](https://github.com/MetalKefir)
+* [ValLikkk](https://github.com/ValLikkk)
+* [MaltseF](https://github.com/MaltseF)
+* [pashutaz](https://github.com/pashutaz)
