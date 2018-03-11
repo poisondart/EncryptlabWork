@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Gronsfeld
+namespace KriptoLaba1
 {
     public class Gronsfeld
     {

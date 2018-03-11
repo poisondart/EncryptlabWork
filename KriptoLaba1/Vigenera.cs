@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Vigenera
+namespace KriptoLaba1
 {
     public class Vigenera
     {
         private static string RusAlphabet = " абвгдеёжзийклмнопрстуфхцчшщъыьэюя";
 
-        public static string EncryptionGronsfeld(string key, string inputText)
+        public static string EncryptionVigener(string key, string inputText)
         {
             inputText = inputText.ToLower();
             key = key.ToLower();
