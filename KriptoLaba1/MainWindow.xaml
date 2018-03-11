@@ -21,5 +21,6 @@
         <Label Content="Второй ключ" HorizontalAlignment="Left" Margin="260,165,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.737,-1.154"/>
         <Label Content="Диаметр" HorizontalAlignment="Left" Margin="284,193,0,0" VerticalAlignment="Top"/>
         <RadioButton Name="polib" Content="Квадрат Полибия" HorizontalAlignment="Left" Margin="46,207,0,0" VerticalAlignment="Top"/>
+        <RadioButton Name="caesar" Content="Шифр Цезаря" HorizontalAlignment="Left" Margin="46,227,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

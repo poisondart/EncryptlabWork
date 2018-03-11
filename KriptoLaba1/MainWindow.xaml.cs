@@ -116,6 +116,27 @@ namespace KriptoLaba1
                 string result_text = polib.Encrypt(orig_text);
                 kripttext.Text = result_text;
             }
+
+            if (caesar.IsChecked == true)
+            {
+                if (String.IsNullOrEmpty(key1.Text))
+                {
+                    MessageBox.Show("Введите ключ", "Ошибка", MessageBoxButton.OK);
+                    return;
+                }
+                if (String.IsNullOrEmpty(origtext.Text))
+                {
+                    MessageBox.Show("Введите текст для шифровки/расшифровки", "Ошибка", MessageBoxButton.OK);
+                    return;
+                }
+
+                string orig_text = origtext.Text;
+                int ces_key = Int32.Parse(key1.Text);
+                Ceasar ceasar = new Ceasar(orig_text, ces_key);
+                ceasar.Encode();
+                string res_text = ceasar.GetText;
+                kripttext.Text = res_text;
+            }
         }
 
         private void Decrypt_Click(object sender, RoutedEventArgs e)
@@ -215,6 +236,26 @@ namespace KriptoLaba1
                 kripttext.Text = result_text;
             }
 
+            if (caesar.IsChecked == true)
+            {
+                if (String.IsNullOrEmpty(key1.Text))
+                {
+                    MessageBox.Show("Введите ключ", "Ошибка", MessageBoxButton.OK);
+                    return;
+                }
+                if (String.IsNullOrEmpty(origtext.Text))
+                {
+                    MessageBox.Show("Введите текст для шифровки/расшифровки", "Ошибка", MessageBoxButton.OK);
+                    return;
+                }
+
+                string orig_text = origtext.Text;
+                int ces_key = Int32.Parse(key1.Text);
+                Ceasar ceasar = new Ceasar(orig_text, ces_key);
+                ceasar.Decode();
+                string res_text = ceasar.GetText;
+                kripttext.Text = res_text;
+            }
         }
     }
 }
