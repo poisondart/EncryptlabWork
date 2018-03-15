@@ -191,7 +191,6 @@ namespace KriptoLaba1
                 string orig_text = origtext.Text;
                 MagicSquare magic = new MagicSquare();
                 var result_text = magic.EncryptionMagicSquare(orig_text);
-                //string res = "";
                 kripttext.Text = "";
                 for (int i = 0; i < 4; i++)
                 {
@@ -200,6 +199,22 @@ namespace KriptoLaba1
                          kripttext.Text += result_text[i, j].ToString();
                     }
                 }
+            }
+
+            if (wheat.IsChecked == true)
+            {
+                if (String.IsNullOrEmpty(origtext.Text))
+                {
+                    MessageBox.Show("Введите текст для шифровки/расшифровки", "Ошибка", MessageBoxButton.OK);
+                    return;
+                }
+
+                string orig_text = origtext.Text;
+                WheatStone wheatStone = new WheatStone();
+
+                string result_txt = wheatStone.Encrypt(orig_text);
+
+                kripttext.Text = result_txt;
             }
         }
 
@@ -357,8 +372,6 @@ namespace KriptoLaba1
                 kripttext.Text = result_text;
             }
 
-            /*не работает*/
-
             if (magicsquare.IsChecked == true)
             {
                 if (String.IsNullOrEmpty(origtext.Text))
@@ -391,6 +404,22 @@ namespace KriptoLaba1
 
                 string result_text = magic.DecipherMagicSquare(orig_array);
                 kripttext.Text = result_text;
+            }
+
+            if (wheat.IsChecked == true)
+            {
+                if (String.IsNullOrEmpty(origtext.Text))
+                {
+                    MessageBox.Show("Введите текст для шифровки/расшифровки", "Ошибка", MessageBoxButton.OK);
+                    return;
+                }
+
+                string orig_text = origtext.Text;
+                WheatStone wheatStone = new WheatStone();
+
+                string result_txt = wheatStone.Decrypt(orig_text);
+
+                kripttext.Text = result_txt;
             }
         }
     }

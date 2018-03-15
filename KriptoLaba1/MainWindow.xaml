@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KriptoLaba1"
         mc:Ignorable="d"
-        Title="Лабораторная работа №1" Height="370" Width="550">
+        Title="Лабораторная работа №1" Height="390" Width="550">
     <Grid Margin="0,0,0,-2">
         <TextBox Name="origtext" HorizontalAlignment="Left" Height="100" Margin="46,10,0,0" TextWrapping="Wrap" Text="Ваш текст" VerticalAlignment="Top" Width="154"/>
-        <TextBox Name="kripttext" HorizontalAlignment="Left" Height="100" Margin="353,10,0,0" TextWrapping="Wrap" Text="Шифр" VerticalAlignment="Top" Width="154"/>
+        <TextBox Name="kripttext" HorizontalAlignment="Left" Height="100" Margin="347,10,0,0" TextWrapping="Wrap" Text="Шифр" VerticalAlignment="Top" Width="154"/>
         <RadioButton Name="skital" Content="Скитала" HorizontalAlignment="Left" Margin="46,137,0,0" VerticalAlignment="Top"/>
         <RadioButton Name="tablekript" Content="Шифрующая таблица" HorizontalAlignment="Left" Margin="46,184,0,0" VerticalAlignment="Top"/>
         <RadioButton Name="doubleswitch" Content="Двойная перестановка" HorizontalAlignment="Left" Margin="46,161,0,0" VerticalAlignment="Top"/>
@@ -25,5 +25,6 @@
         <RadioButton Name="gron"  Content="Шифр Гронсфельда" HorizontalAlignment="Left" Margin="46,250,0,0" VerticalAlignment="Top"/>
         <RadioButton Name="visiner" Content="Шифр Виженера" HorizontalAlignment="Left" Margin="46,270,0,0" VerticalAlignment="Top"/>
         <RadioButton Name="magicsquare" Content="Магический квадрат" HorizontalAlignment="Left" Margin="46,290,0,0" VerticalAlignment="Top"/>
+        <RadioButton Name="wheat" Content="Шифр Уитстона" HorizontalAlignment="Left" Margin="46,310,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

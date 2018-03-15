@@ -64,6 +64,7 @@
     <Compile Include="Skital.cs" />
     <Compile Include="TableTrans.cs" />
     <Compile Include="Vigenera.cs" />
+    <Compile Include="WheatStone.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
