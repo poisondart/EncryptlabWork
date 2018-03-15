@@ -197,7 +197,7 @@ namespace KriptoLaba1
                 {
                     for (int j = 0; j < 4; j++)
                     {
-                        kripttext.Text += result_text[i, j].ToString();
+                         kripttext.Text += result_text[i, j].ToString();
                     }
                 }
             }
@@ -356,6 +356,8 @@ namespace KriptoLaba1
                 string result_text = Vigenera.Decryption(gron_key, orig_text);
                 kripttext.Text = result_text;
             }
+
+            /*не работает*/
 
             if (magicsquare.IsChecked == true)
             {

@@ -11,7 +11,7 @@ namespace KriptoLaba1
         public char[,] EncryptionMagicSquare(string text)
         {
             int index = 0;
-            char[,] encryptedText = new char[4, 4];
+            char[,] encryptedText = new char[4, 4] { { ' ', ' ', ' ', ' ' }, { ' ', ' ', ' ', ' ' }, { ' ', ' ', ' ', ' ' }, { ' ', ' ', ' ', ' ' } };
             while (index != text.Length)
             {
                 for (int i = 0; i < 4; i++)
