@@ -59,6 +59,7 @@
     <Compile Include="Ceasar.cs" />
     <Compile Include="DoubleTrans.cs" />
     <Compile Include="Gronsfeld.cs" />
+    <Compile Include="MagicSquare.cs" />
     <Compile Include="PolibSquare.cs" />
     <Compile Include="Skital.cs" />
     <Compile Include="TableTrans.cs" />

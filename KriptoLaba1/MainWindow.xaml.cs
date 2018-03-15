@@ -173,6 +173,34 @@ namespace KriptoLaba1
                 string result_text = Vigenera.EncryptionVigener(gron_key, orig_text);
                 kripttext.Text = result_text;
             }
+
+            if (magicsquare.IsChecked == true)
+            {
+                if (String.IsNullOrEmpty(origtext.Text))
+                {
+                    MessageBox.Show("Введите текст для шифровки/расшифровки", "Ошибка", MessageBoxButton.OK);
+                    return;
+                }
+
+                if (origtext.Text.Length > 16)
+                {
+                    MessageBox.Show("Вы ввели больше, чем 16 символов", "Ошибка", MessageBoxButton.OK);
+                    return;
+                }
+
+                string orig_text = origtext.Text;
+                MagicSquare magic = new MagicSquare();
+                var result_text = magic.EncryptionMagicSquare(orig_text);
+                //string res = "";
+                kripttext.Text = "";
+                for (int i = 0; i < 4; i++)
+                {
+                    for (int j = 0; j < 4; j++)
+                    {
+                        kripttext.Text += result_text[i, j].ToString();
+                    }
+                }
+            }
         }
 
         private void Decrypt_Click(object sender, RoutedEventArgs e)
@@ -326,6 +354,40 @@ namespace KriptoLaba1
                 string orig_text = origtext.Text;
                 string gron_key = key1.Text;
                 string result_text = Vigenera.Decryption(gron_key, orig_text);
+                kripttext.Text = result_text;
+            }
+
+            if (magicsquare.IsChecked == true)
+            {
+                if (String.IsNullOrEmpty(origtext.Text))
+                {
+                    MessageBox.Show("Введите текст для шифровки/расшифровки", "Ошибка", MessageBoxButton.OK);
+                    return;
+                }
+
+                if (origtext.Text.Length > 16)
+                {
+                    MessageBox.Show("Вы ввели больше, чем 16 символов", "Ошибка", MessageBoxButton.OK);
+                    return;
+                }
+
+                string orig_text = origtext.Text;
+                MagicSquare magic = new MagicSquare();
+
+                char[,] orig_array = new char[4, 4];
+
+                int k = 0;
+
+                for (int i = 0; i < 4; i++)
+                {
+                    for (int j = 0; j < 4; j++)
+                    {
+                        orig_array[i, j] = orig_text[k];
+                        k++;
+                    }
+                }
+
+                string result_text = magic.DecipherMagicSquare(orig_array);
                 kripttext.Text = result_text;
             }
         }
