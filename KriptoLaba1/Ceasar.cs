@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 using System.Text.RegularExpressions;
 
-namespace Ceasar
+namespace KriptoLaba1
 {
     public class Ceasar
     {

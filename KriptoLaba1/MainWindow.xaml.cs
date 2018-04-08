@@ -43,7 +43,7 @@ namespace KriptoLaba1
             }
 
 
-            if (tablekript.IsChecked==true) {
+            if (tablekript.IsChecked == true) {
 
                 if (String.IsNullOrEmpty(key1.Text))
                 {
@@ -73,13 +73,13 @@ namespace KriptoLaba1
                     MessageBox.Show("Введите первый ключ", "Ошибка", MessageBoxButton.OK);
                     return;
                 }
-                
+
                 if (String.IsNullOrEmpty(key2.Text))
                 {
                     MessageBox.Show("Введите второй ключ", "Ошибка", MessageBoxButton.OK);
                     return;
                 }
-                
+
                 if (String.IsNullOrEmpty(origtext.Text))
                 {
                     MessageBox.Show("Введите текст для шифровки/расшифровки", "Ошибка", MessageBoxButton.OK);
@@ -101,6 +101,77 @@ namespace KriptoLaba1
                 {
                     MessageBox.Show(ex.ToString());
                 }
+            }
+
+            if (polib.IsChecked == true)
+            {
+                if (String.IsNullOrEmpty(origtext.Text))
+                {
+                    MessageBox.Show("Введите текст для шифровки/расшифровки", "Ошибка", MessageBoxButton.OK);
+                    return;
+                }
+
+                string orig_text = origtext.Text;
+                PolibSquare polib = new PolibSquare();
+                string result_text = polib.Encrypt(orig_text);
+                kripttext.Text = result_text;
+            }
+
+            if (caesar.IsChecked == true)
+            {
+                if (String.IsNullOrEmpty(key1.Text))
+                {
+                    MessageBox.Show("Введите ключ", "Ошибка", MessageBoxButton.OK);
+                    return;
+                }
+                if (String.IsNullOrEmpty(origtext.Text))
+                {
+                    MessageBox.Show("Введите текст для шифровки/расшифровки", "Ошибка", MessageBoxButton.OK);
+                    return;
+                }
+
+                string orig_text = origtext.Text;
+                int ces_key = Int32.Parse(key1.Text);
+                Ceasar ceasar = new Ceasar(orig_text, ces_key);
+                ceasar.Encode();
+                string res_text = ceasar.GetText;
+                kripttext.Text = res_text;
+            }
+
+            if (gron.IsChecked == true)
+            {
+                if (String.IsNullOrEmpty(key1.Text))
+                {
+                    MessageBox.Show("Введите ключ", "Ошибка", MessageBoxButton.OK);
+                    return;
+                }
+                if (String.IsNullOrEmpty(origtext.Text))
+                {
+                    MessageBox.Show("Введите текст для шифровки/расшифровки", "Ошибка", MessageBoxButton.OK);
+                    return;
+                }
+                string orig_text = origtext.Text;
+                string gron_key = key1.Text;
+                string result_text = Gronsfeld.EncryptionGronsfeld(gron_key, orig_text);
+                kripttext.Text = result_text;
+            }
+
+            if (visiner.IsChecked == true)
+            {
+                if (String.IsNullOrEmpty(key1.Text))
+                {
+                    MessageBox.Show("Введите ключ", "Ошибка", MessageBoxButton.OK);
+                    return;
+                }
+                if (String.IsNullOrEmpty(origtext.Text))
+                {
+                    MessageBox.Show("Введите текст для шифровки/расшифровки", "Ошибка", MessageBoxButton.OK);
+                    return;
+                }
+                string orig_text = origtext.Text;
+                string gron_key = key1.Text;
+                string result_text = Vigenera.EncryptionVigener(gron_key, orig_text);
+                kripttext.Text = result_text;
             }
         }
 
@@ -186,7 +257,77 @@ namespace KriptoLaba1
                     MessageBox.Show(ex.ToString());
                 }
             }
-           
+
+            if (polib.IsChecked == true)
+            {
+                if (String.IsNullOrEmpty(origtext.Text))
+                {
+                    MessageBox.Show("Введите текст для шифровки/расшифровки", "Ошибка", MessageBoxButton.OK);
+                    return;
+                }
+
+                string orig_text = origtext.Text;
+                PolibSquare polib = new PolibSquare();
+                string result_text = polib.Decrypt(orig_text);
+                kripttext.Text = result_text;
+            }
+
+            if (caesar.IsChecked == true)
+            {
+                if (String.IsNullOrEmpty(key1.Text))
+                {
+                    MessageBox.Show("Введите ключ", "Ошибка", MessageBoxButton.OK);
+                    return;
+                }
+                if (String.IsNullOrEmpty(origtext.Text))
+                {
+                    MessageBox.Show("Введите текст для шифровки/расшифровки", "Ошибка", MessageBoxButton.OK);
+                    return;
+                }
+
+                string orig_text = origtext.Text;
+                int ces_key = Int32.Parse(key1.Text);
+                Ceasar ceasar = new Ceasar(orig_text, ces_key);
+                ceasar.Decode();
+                string res_text = ceasar.GetText;
+                kripttext.Text = res_text;
+            }
+
+            if (gron.IsChecked == true)
+            {
+                if (String.IsNullOrEmpty(key1.Text))
+                {
+                    MessageBox.Show("Введите ключ", "Ошибка", MessageBoxButton.OK);
+                    return;
+                }
+                if (String.IsNullOrEmpty(origtext.Text))
+                {
+                    MessageBox.Show("Введите текст для шифровки/расшифровки", "Ошибка", MessageBoxButton.OK);
+                    return;
+                }
+                string orig_text = origtext.Text;
+                string gron_key = key1.Text;
+                string result_text = Gronsfeld.Decryption(gron_key, orig_text);
+                kripttext.Text = result_text;
+            }
+
+            if (visiner.IsChecked == true)
+            {
+                if (String.IsNullOrEmpty(key1.Text))
+                {
+                    MessageBox.Show("Введите ключ", "Ошибка", MessageBoxButton.OK);
+                    return;
+                }
+                if (String.IsNullOrEmpty(origtext.Text))
+                {
+                    MessageBox.Show("Введите текст для шифровки/расшифровки", "Ошибка", MessageBoxButton.OK);
+                    return;
+                }
+                string orig_text = origtext.Text;
+                string gron_key = key1.Text;
+                string result_text = Vigenera.Decryption(gron_key, orig_text);
+                kripttext.Text = result_text;
+            }
         }
     }
 }
