@@ -1,4 +1,7 @@
-﻿namespace Ceasar
+﻿using System;
+using System.Text.RegularExpressions;
+
+namespace Ceasar
 {
     public class Ceasar
     {
@@ -39,8 +42,17 @@
                 }
                
             }
-                
-            _text = encodedText;
+
+            if (Regex.IsMatch(_text, "^[а-яА-Я]*$"))
+            {
+                _text = encodedText;
+            }
+            else
+            {
+                _text = "error";
+                Console.WriteLine("Вводите текст только на русском!");
+            }
+           
         }
 
 //        для декодирования мы, по сути, переворачиваем алфавит и делаем тоже самое, что и при кодировке
@@ -67,7 +79,15 @@
                 }
 
             }
-            _text = decodedText;
+            if (Regex.IsMatch(_text, "^[а-яА-Я]*$"))
+            {
+                _text = decodedText;
+            }
+            else
+            {
+                _text = "error";
+                Console.WriteLine("Вводите текст только на русском!");
+            }
         }
 
     }
